@@ -14,7 +14,7 @@ smtp = smtplib.SMTP("smtp.live.com",587)
 smtp.ehlo() 
 smtp.starttls() 
 smtp.ehlo()
-smtp.login('#', '#')
+smtp.login('debora.turibio@hotmail.com', 'mecatual2012')
 
 def send_mail(send_from, send_to, subject, text, files=None,server="smtp.live.com"):
     # assert isinstance(send_to, list)
@@ -39,7 +39,7 @@ def send_mail(send_from, send_to, subject, text, files=None,server="smtp.live.co
     smtp.sendmail(send_from, send_to, msg.as_string())
     # smtp.quit()
 
-w = xlrd.open_workbook("/home/jonatas/Desktop/email.xlsx")
+w = xlrd.open_workbook("/home/jonatas/Downloads/email.xlsx")
 s = w.sheet_by_index(0);
 
 for r in range(s.nrows):
