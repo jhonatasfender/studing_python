@@ -14,7 +14,7 @@ smtp = smtplib.SMTP("smtp.live.com",587)
 smtp.ehlo() 
 smtp.starttls() 
 smtp.ehlo()
-smtp.login('debora.turibio@hotmail.com', 'mecatual2012')
+smtp.login('debora.turibio@hotmail.com', '')
 
 def send_mail(send_from, send_to, subject, text, files=None,server="smtp.live.com"):
     # assert isinstance(send_to, list)
