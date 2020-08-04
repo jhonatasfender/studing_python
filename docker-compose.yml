@@ -1,15 +1,20 @@
 version: "3"
 services:
   datascience-notebook:
-    image: jupyter/datascience-notebook
+    build:
+      context: .
+    container_name: jupyter-study
+    image: jupyter-study
     volumes:
-      - ${LOCAL_WORKING_DIR}:/home/jovyan/work
-      - ${LOCAL_DATASETS}:/home/jovyan/work/datasets
-      - ${LOCAL_MODULES}:/home/jovyan/work/modules
+      - ${LOCAL_WORKING_DIR}:/root/work
+      - ${LOCAL_DATASETS}:/root/work/datasets
+      - ${LOCAL_MODULES}:/root/work/modules
       - ${LOCAL_SSL_CERTS}:/etc/ssl/notebook
     ports:
       - ${PORT}:8888
-    container_name: jupyter_notebook
-    command: "start-notebook.sh \
+    command: "jupyter notebook \
+       --ip=0.0.0.0 --port=8888 --allow-root \
       --NotebookApp.password=${ACCESS_TOKEN} \
       --NotebookApp.certfile=/etc/ssl/notebook/jupyter.pem"
+
+# jupyter notebook --NotebookApp.password=${ACCESS_TOKEN} --NotebookApp.certfile=config/pem/jupyter.pem
