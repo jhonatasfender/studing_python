@@ -36,7 +36,8 @@ ENV CUDA_HOME=/usr/local/cuda
 
 RUN python -m pip install pip jupyter notebook numba scrapy html5lib \
   bs4 numpy pandas scikit-learn tensorflow matplotlib seaborn \
-  bokeh plotly pydot setuptools nb_black jupyterthemes PyAutoGUI
+  bokeh plotly pydot setuptools nb_black jupyterthemes PyAutoGUI \
+  pandas-datareader
 
 # https://github.com/dunovank/jupyter-themes
 RUN jt -t chesterish
